@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de asistencias</title>
+    <style>
+        html {
+            background-color: #e8f5e9;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            background-color: #2e7d32;
+            color: #ffffff;
+            text-align: center;
+            font-size: 24px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        p {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            background-color: #f1f8f2;
+            border-left: 4px solid #43a047;
+            border-radius: 6px;
+            padding: 12px 14px;
+            font-size: 16px;
+            word-break: break-word;
+        }
+
+        p:nth-of-type(7) {
+            grid-column: 1 / -1;
+        }
+
+        p strong {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #2e7d32;
+        }
+
+        br {
+            display: none;
+        }
+
+        a {
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #2e7d32;
+            transition: 0.3s;
+        }
+
+        a:nth-of-type(1) {
+            background-color: #2e7d32;
+            color: #ffffff;
+        }
+
+        a:nth-of-type(1):hover {
+            background-color: #1b5e20;
+            border-color: #1b5e20;
+        }
+
+        a:nth-of-type(2) {
+            background-color: #ffffff;
+            color: #2e7d32;
+        }
+
+        a:nth-of-type(2):hover {
+            background-color: #e8f5e9;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Detalle de la asistencia</h1>
+
+<p>
+    <strong>Tipo de documento:</strong>
+    {{ asistencias.tipo_de_documento }}
+</p>
+
+<p>
+    <strong>Documento:</strong>
+    {{ asistencias.documento }}
+</p>
+
+<p>
+    <strong>Nombre:</strong>
+    {{ asistencias.nombre }}
+</p>
+
+<p>
+    <strong>Apellido:</strong>
+    {{ asistencias.apellidos }}
+</p>
+
+<p>
+    <strong>Whatsapp:</strong>
+    {{ asistencias.whatsapp }}
+</p>
+
+<p>
+    <strong>Fecha:</strong>
+    {{ asistencias.fecha }}
+</p>
+
+<p>
+    <strong>Asistencia:</strong>
+    {{ asistencias.asistio }}
+</p>
+
+
+<br>
+
+<a href="/asistencias/editar/{{ asistencias.id }}/">
+    Editar
+</a>
+
+<br><br>
+
+<a href="/asistencias/listar/">
+    Volver
+</a>
+
+</body>
+
+</html>

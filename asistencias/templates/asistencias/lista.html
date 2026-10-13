@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Asistencias Registradas</title>
+    <style>
+    html {
+        background-color: #e8f5e9;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #ffffff;
+        color: #ffffff; /* oculta los "|" entre enlaces */
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 25px;
+        border-radius: 14px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    h1 {
+        background-color: #2e7d32;
+        color: #ffffff;
+        text-align: center;
+        font-size: 24px;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    h3,
+    p {
+        display: block;
+        background-color: #f1f8f2;
+        border-left: 4px solid #43a047;
+        border-radius: 6px;
+        padding: 10px 14px;
+        margin: 6px 0;
+        font-size: 15px;
+    }
+
+    h3 {
+        color: #1b5e20;
+    }
+
+    p {
+        color: #333333;
+    }
+
+    a {
+        display: inline-block;
+        padding: 9px 16px;
+        margin: 12px 6px 0 0;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        border: 2px solid #2e7d32;
+        transition: 0.3s;
+    }
+
+    a[href*="crear"],
+    a[href*="detalle"] {
+        background-color: #2e7d32;
+        color: #ffffff;
+    }
+
+    a[href*="crear"]:hover,
+    a[href*="detalle"]:hover {
+        background-color: #1b5e20;
+        border-color: #1b5e20;
+    }
+
+    a[href*="editar"],
+    a[href*="eliminar"] {
+        background-color: #ffffff;
+        color: #2e7d32;
+    }
+
+    a[href*="editar"]:hover,
+    a[href*="eliminar"]:hover {
+        background-color: #e8f5e9;
+    }
+
+    hr {
+        border: none;
+        height: 2px;
+        background-color: #c8e6c9;
+        margin: 22px 0;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Lista de registros</h1>
+
+<a href="/asistencias/crear/">
+    Nueva asistencia
+</a>
+
+<hr>
+
+{% for asistencia in asistencias %}
+
+    <h3>Tipo de documento: {{ asistencia.tipo_de_documento }}</h3>
+
+    <p>Documento: {{ asistencia.documento }}</p>
+
+    <h3>Nombre: {{ asistencia.nombre }}</h3>
+
+    <h3>Apellidos: {{ asistencia.apellidos }}</h3>
+
+    <p>Whatsapp: {{ asistencia.whatsapp }}</p>
+
+    <p>Fecha: {{ asistencia.fecha }}</p>
+
+    <p>Asistencia: {{ asistencia.asistio }}</p>
+
+   <a href="/asistencias/detalle/{{ asistencia.id }}/">
+        Ver asistencia
+    </a>
+
+    |
+
+    <a href="/asistencias/editar/{{ asistencia.id }}/">
+        Editar asistencia
+    </a>
+
+    |
+    <a href="/asistencias/eliminar/{{ asistencia.id }}/">
+        Eliminar asistencia
+    </a>
+ 
+    <hr>
+
+{% empty %}
+
+    <p>No hay asistencias registradas.</p>
+
+{% endfor %}
+
+</body>
+
+</html>
